@@ -4,5 +4,17 @@
   "version": "3.8.7",
   "creator": {
     "version": "3.8.7"
+  },
+  "main": "index.js",
+  "scripts": {
+    "format": "prettier --write \"assets/**/*.ts\"",
+    "format:check": "prettier --check \"assets/**/*.ts\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "prettier": "^3.9.5"
   }
 }

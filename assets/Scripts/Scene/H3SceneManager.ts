@@ -1,9 +1,6 @@
-import { _decorator } from 'cc';
-import { SceneManager } from './SceneManager';
+import { _decorator } from "cc";
+import { SceneManager } from "./SceneManager";
 const { ccclass, property } = _decorator;
 
-@ccclass('H3SceneManager')
-export class H3SceneManager extends SceneManager {
-
-}
-
+@ccclass("H3SceneManager")
+export class H3SceneManager extends SceneManager {}
