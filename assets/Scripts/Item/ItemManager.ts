@@ -17,12 +17,12 @@ export class ItemManager extends RenderManager {
   @property({ type: SpriteFrame, tooltip: "背包中状态的物品资源图" })
   inventorySf: SpriteFrame = null;
 
-  protected start(): void {
+  start(): void {
     super.start();
     this.node.on(Node.EventType.TOUCH_END, this.touchEnd, this);
   }
 
-  protected onDestroy(): void {
+  onDestroy(): void {
     super.onDestroy();
     this.node.off(Node.EventType.TOUCH_END, this.touchEnd, this);
   }
@@ -34,6 +34,8 @@ export class ItemManager extends RenderManager {
     if (!item) return;
 
     if (item.status === ItemStatusEnum.Scene) {
+      const index = DataManager.Instance.items.findIndex((item) => this.type === item.type);
+      DataManager.Instance.items.push(...DataManager.Instance.items.splice(index, 1));
       item.status = ItemStatusEnum.Inventory;
       // 触发set
       DataManager.Instance.items = [...DataManager.Instance.items];

@@ -1,5 +1,5 @@
 import { _decorator, Component } from "cc";
-import { EventManager } from "../Runtime/EventManager";
+import EventManager from "../Runtime/EventManager";
 import { EventEnum } from "../Enum";
 const { ccclass, property } = _decorator;
 
@@ -9,11 +9,11 @@ export abstract class RenderManager extends Component {
     EventManager.Instance.on(EventEnum.Render, this.render, this);
   }
 
-  protected onDestroy(): void {
-    EventManager.Instance.off(EventEnum.Render, this.render, this);
+  onDestroy(): void {
+    EventManager.Instance.off(EventEnum.Render, this.render);
   }
 
-  protected start(): void {
+  start(): void {
     this.render();
   }
 
